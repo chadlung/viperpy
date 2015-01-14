@@ -2,6 +2,7 @@
 """-*- coding: utf-8 -*-
 ViperPy Setup
 """
+
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -18,7 +19,7 @@ def read(relative):
     contents = open(relative, 'r').read()
     return [l for l in contents.split('\n') if l != '']
 
-with open('README.rst', 'r', 'utf-8') as f:
+with open('README.rst', 'r') as f:
     readme = f.read()
 
 setup(
