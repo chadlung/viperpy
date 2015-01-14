@@ -112,7 +112,7 @@ class Bucket():
             url='object/bucket/{0}/retention'.format(bucket_name),
             json_payload=payload)
 
-    def create_bucket(self, name, vpool, namespace, filesystem_enabled,
+    def create_bucket(self, bucket_name, vpool, namespace, filesystem_enabled,
                       project=None, head_type=None):
         """
         Create a bucket
@@ -133,7 +133,7 @@ class Bucket():
             "tags": []
         }
 
-        :param name: Name of the bucket
+        :param bucket_name: Name of the bucket
         :param project: Project ID for the bucket
         :param vpool: vpool ID for the bucket
         :param filesystem_enabled: flag indicating whether file-system is
@@ -146,7 +146,7 @@ class Bucket():
         """
 
         payload = {
-            "name": name,
+            "name": bucket_name,
             "project": project,
             "vpool": vpool,
             "filesystem_enabled": filesystem_enabled,
