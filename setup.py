@@ -21,6 +21,8 @@ def read(relative):
 
 setup(
     name='viperpy',
+    url='https://github.com/chadlung/viperpy',
+    keywords=['vipr'],
     version=read('VERSION')[0],
     description='A library for interacting with the EMC ViPR API',
     author='Chad Lung, EMC Rubicon',
