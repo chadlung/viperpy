@@ -215,3 +215,31 @@ class Bucket():
             url='object/bucket/{0}/lock/{1}'.format(bucket_name, is_locked),
             json_payload=payload
         )
+
+    def get_bucket_info(self, bucket_name):
+        """
+        Returns information for a given bucket
+
+        Example JSON result from the API:
+
+        {
+            "name": "bobsbucket",
+            "global": None,
+            "remote": None,
+            "vdc": None,
+            "tags":[],
+            "namespace": "namespace1",
+            "locked": False,
+            "created": "2014-12-23T22:31:42.382Z",
+            "vpool": (
+                "urn:storageos:ReplicationGroupInfo:01293ac4-0fea-425e-954f-"
+                "29cc5f155243:global"
+            ),
+            "fs_access_enabled": True,
+            "owner": "thucydides@peloponnese"
+        }
+
+        :param bucket_name: The bucket name to fetch information
+        """
+        return self.conn.get(
+            url='object/bucket/{0}/info'.format(bucket_name))
