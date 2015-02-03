@@ -140,9 +140,9 @@ class Bucket():
             enabled for this bucket
         :param head_type: HeadType indicates the object head type that is
             allowed to access the bucket. If the bucket has FS-Enabled,
-            then the FS heads are implicitly allowed to access this bucket 
+            then the FS heads are implicitly allowed to access this bucket
         :param namespace: namespace associated with the user/tenant that is
-            allowed to access the bucket    
+            allowed to access the bucket
         """
 
         payload = {

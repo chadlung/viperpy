@@ -72,6 +72,29 @@ class UserManagement():
         else:
             return self.conn.get(url='object/users.json')
 
+    def get_objectuser_info(self, user):
+        """
+        Get object user info
+
+        Required role(s):
+
+        SYSTEM_ADMIN
+        TENANT_ADMIN
+
+        Example JSON result from the API:
+
+        {
+            "namespace": "namespace1",
+            "name": "thucydides@peloponnese",
+            "locked": False,
+            "created": "Mon Jan 12 22:07:50 UTC 2015"
+        }
+
+        :param user: Example: thucydides@peloponnese
+        """
+
+        return self.conn.get(url='object/users/{0}/info'.format(user))
+
     def deactivate_objectuser(self, user, namespace=None):
         """
         Delete a user and all associated secret keys
@@ -154,7 +177,7 @@ class UserManagement():
             }
 
         return self.conn.put(url='object/users/lock',
-                              json_payload=payload)
+                             json_payload=payload)
 
     def get_objectuser_lock(self, user, namespace=None):
         """
