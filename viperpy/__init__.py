@@ -6,6 +6,8 @@ import os
 import requests
 
 # Project level imports
+from viperpy.api.authentication import Authentication
+
 from viperpy.api.fabric.capacity import Capacity as FabricCapacity
 from viperpy.api.fabric.disk import Disk
 from viperpy.api.fabric.health import Health
@@ -80,6 +82,9 @@ class Viperpy(object):
             cache_token=self.cache_token)
         self.token_file = os.path.join(
             self.token_location, self.token_filename)
+
+        # API -> Authentication
+        self.authentication = Authentication(self)
 
         # API -> Fabric
         self.fabric_capacity = FabricCapacity(self)
