@@ -4,6 +4,9 @@ ViperPy
 A Python library for interacting with the EMC ViPR API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: https://travis-ci.org/chadlung/viperpy.svg?branch=master
+    :target: https://travis-ci.org/chadlung/viperpy
+
 **Note:** `ViPR <https://www.emc.com/vipr>`__ is an EMC product,
 trademarked, copyrighted, etc.
 
