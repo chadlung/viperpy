@@ -150,9 +150,9 @@ class UserManagement():
         return self.conn.post(url='object/users.json',
                               json_payload=payload)
 
-    def lock_objectuser(self, user, namespace=None):
+    def lock_objectuser(self, user, is_locked=True, namespace=None):
         """
-        Lock a user
+        Lock/Unlock a user
 
         Required role(s):
 
@@ -165,15 +165,18 @@ class UserManagement():
 
         :param user: Example: user@somewhere
         :param namespace: Example: namespace1 (optional)
+        :param is_locked: Example: True/False (optional)
         """
         if namespace:
             payload = {
                 "user": user,
-                "namespace": namespace
+                "namespace": namespace,
+                "isLocked": is_locked
             }
         else:
             payload = {
-                "user": user
+                "user": user,
+                "isLocked": is_locked
             }
 
         return self.conn.put(url='object/users/lock',

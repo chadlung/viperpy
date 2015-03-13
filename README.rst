@@ -96,6 +96,11 @@ need to set your ``request_timeout`` to ``60.0``.
             print(client.user_management.get_objectusers())
             print(client.user_management.get_objectusers('namespace1'))
 
+            print(client.user_management.lock_objectuser('myuser1', is_locked=True, namespace='namespace1'))
+            print(client.user_management.get_objectuser_info('myuser1'))
+            print(client.user_management.lock_objectuser('myuser1', is_locked=False, namespace='namespace1'))
+            print(client.user_management.get_objectuser_info('myuser1'))
+
             print(client.user_secret_key.get_user_secret_keys(uid='user1@test'))
 
             print(client.configuration.get_config_properties())
