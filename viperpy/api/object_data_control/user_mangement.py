@@ -147,7 +147,7 @@ class UserManagement():
             "namespace": namespace
         }
 
-        return self.conn.post(url='object/users.json',
+        return self.conn.post(url='object/users',
                               json_payload=payload)
 
     def lock_objectuser(self, user, is_locked=True, namespace=None):
