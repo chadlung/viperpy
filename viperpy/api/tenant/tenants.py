@@ -23,7 +23,7 @@ class Tenants():
 
         :return: A list of Tenant IDs
         """
-        json_data = self.conn.get('tenants/bulk.json')
+        json_data = self.conn.get('tenants/bulk')
         return json_data['id']
 
     def get_tenant(self, tenant_id):
@@ -33,7 +33,7 @@ class Tenants():
 
         :return: The tenant's information
         """
-        return self.conn.get('tenants/{0}.json'.format(tenant_id))
+        return self.conn.get('tenants/{0}'.format(tenant_id))
 
     def get_subtenants(self, tenant_id):
-        return self.conn.get('tenants/{0}/subtenants.json'.format(tenant_id))
+        return self.conn.get('tenants/{0}/subtenants'.format(tenant_id))

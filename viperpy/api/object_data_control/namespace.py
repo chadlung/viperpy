@@ -48,7 +48,7 @@ class Namespace():
             ]
         }
         """
-        return self.conn.get(url='object/namespaces.json')
+        return self.conn.get(url='object/namespaces')
 
     def get_namespace_info(self, namespace_identifier):
         """
@@ -83,5 +83,5 @@ class Namespace():
         :param namespace_identifier: Namespace identifier
         """
         return self.conn.get(
-            url='object/namespaces/namespace/{0}.json'.format(
+            url='object/namespaces/namespace/{0}'.format(
                 namespace_identifier))

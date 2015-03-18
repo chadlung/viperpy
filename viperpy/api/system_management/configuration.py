@@ -56,4 +56,4 @@ class Configuration():
             }
         }
         """
-        return self.conn.get('config/properties.json')
+        return self.conn.get('config/properties')

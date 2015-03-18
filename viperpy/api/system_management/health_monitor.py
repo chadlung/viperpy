@@ -54,7 +54,7 @@ class HealthMonitor():
         }
 
         return self.conn.get(
-            'monitor/stats.json', params=params)
+            'monitor/stats', params=params)
 
     def get_health(self, node_id=None):
         """
@@ -197,7 +197,7 @@ class HealthMonitor():
         }
 
         return self.conn.get(
-            'monitor/health.json', params=params)
+            'monitor/health', params=params)
 
     def get_diagnostics(self, node_id=None, verbose=None):
         """
@@ -231,7 +231,7 @@ class HealthMonitor():
         }
 
         return self.conn.get(
-            'monitor/diagnostics.json', params=params)
+            'monitor/diagnostics', params=params)
 
     def get_storage_stats(self):
         """
@@ -258,4 +258,4 @@ class HealthMonitor():
             }
         }
         """
-        return self.conn.get('monitor/storage.json')
+        return self.conn.get('monitor/storage')

@@ -31,4 +31,4 @@ class Health():
 
         :return: The health information
         """
-        return self.conn.get('vdc/fabric/health.json')
+        return self.conn.get('vdc/fabric/health')
