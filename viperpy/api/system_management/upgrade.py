@@ -32,7 +32,7 @@ class Upgrade():
         }
 
         """
-        return self.conn.get('upgrade/target-version.json')
+        return self.conn.get('upgrade/target-version')
 
     def get_cluster_state(self, force=False):
         """
@@ -99,7 +99,7 @@ class Upgrade():
         }
 
         return self.conn.get(
-            'upgrade/cluster-state.json', params=params)
+            'upgrade/cluster-state', params=params)
 
     def get_download_progress(self):
         """
@@ -119,4 +119,4 @@ class Upgrade():
         }
 
         """
-        return self.conn.get('upgrade/image/download/progress.json')
+        return self.conn.get('upgrade/image/download/progress')

@@ -70,7 +70,7 @@ class UserManagement():
         if namespace:
             return self.conn.get(url='object/users/{0}'.format(namespace))
         else:
-            return self.conn.get(url='object/users.json')
+            return self.conn.get(url='object/users')
 
     def get_objectuser_info(self, user):
         """
@@ -118,7 +118,7 @@ class UserManagement():
                 "user": user
             }
 
-        return self.conn.post(url='object/users/deactivate.json',
+        return self.conn.post(url='object/users/deactivate',
                               json_payload=payload)
 
     def add_objectuser(self, user, namespace):

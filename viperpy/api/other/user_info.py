@@ -41,7 +41,7 @@ class UserInfo():
         }
         """
 
-        return self.conn.get('user/whoami.json')
+        return self.conn.get('user/whoami')
 
     def get_tenant(self, username=None):
         """
@@ -76,4 +76,4 @@ class UserInfo():
             }
 
         return self.conn.get(
-            'user/tenant.json', params=params)
+            'user/tenant', params=params)
