@@ -21,6 +21,18 @@ class TokenRequest(object):
                  cache_token):
         """
         Create a new TokenRequest instance
+
+        :param username: The username to fetch a token
+        :param password: The password to fetch a token
+        :param vipr_endpoint: The URL where ViPR is located
+        :param token_endpoint: The URL where the ViPR login is located
+        :param verify_ssl: Verify SSL certificates
+        :param token_filename: The name of the cached token filename
+        :param token_location: By default this is stored in /tmp
+        :param request_timeout: How long to wait for ViPR to respond
+        :param cache_token: Whether to cache the token, by default this is true
+        you should only switch this to false when you want to directly fetch
+        a token for a user
         """
         self.username = username
         self.password = password
