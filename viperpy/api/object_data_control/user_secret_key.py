@@ -50,7 +50,7 @@ class UserSecretKey():
                 url='object/user-secret-keys/{0}'.format(uid))
 
     def create_new_secret_key(self, uid, namespace=None,
-                              key_expiration=2592000):
+                              key_expiration=2592000, secret_key=None):
         """
         Create new key for a specific user
 
@@ -72,11 +72,15 @@ class UserSecretKey():
         :param uid: Valid user identifier to create a key for
         :param namespace: The namespace
         :param key_expiration: Defaults to 30 days (2592000 seconds)
+        :param secret_key: Manually specify the new secret key (ECS 2.0+).
         """
         payload = {
             "existing_key_expiry_time_mins": key_expiration,
             "namespace": namespace
         }
+
+        if secret_key:
+            payload['secretkey'] = secret_key
 
         return self.conn.post(url='object/user-secret-keys/{0}'.format(uid),
                               json_payload=payload)
