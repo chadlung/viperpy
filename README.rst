@@ -10,6 +10,10 @@ A Python library for interacting with the EMC ViPR API
 **Note:** `ViPR <https://www.emc.com/vipr>`__ is an EMC product,
 trademarked, copyrighted, etc.
 
+If you are using the ECS (Elastic Cloud Storage) product it is recommended that you
+use `ECSMinion<https://github.com/chadlung/ecsminion>`__ to communicate with the
+Management APIs.
+
 Using this library is pretty straight forward. ViperPy can be installed
 from `PyPi <http://pypi.python.org/>`__:
 
@@ -135,7 +139,7 @@ need to set your ``request_timeout`` to ``60.0``.
                         print(subtenant)
                 except:
                     pass
-                    
+
             # Beta Billing API:
             print(client.billing.get_bucket_billing_info('namespace1', 'bucket1'))
 
@@ -181,7 +185,7 @@ Example: Create, list, and remove object users
             print(client.user_management.get_objectusers())
 
             # This next line won't print anything useful as the body is empty
-            # If an HTTP 200 is not returned an error with raise, otherwise you can 
+            # If an HTTP 200 is not returned an error with raise, otherwise you can
             # assume that the call was successful
             client.user_management.deactivate_objectuser(user='mytest1')
             print(client.user_management.get_objectusers())
