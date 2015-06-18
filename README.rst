@@ -11,7 +11,7 @@ A Python library for interacting with the EMC ViPR API
 trademarked, copyrighted, etc.
 
 If you are using the ECS (Elastic Cloud Storage) product it is recommended that you
-use `ECSMinion<https://github.com/chadlung/ecsminion>`__ to communicate with the
+use `ECSMinion <https://github.com/chadlung/ecsminion>`__ to communicate with the
 Management APIs.
 
 Using this library is pretty straight forward. ViperPy can be installed
