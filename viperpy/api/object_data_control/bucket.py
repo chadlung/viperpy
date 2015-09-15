@@ -216,7 +216,7 @@ class Bucket():
             json_payload=payload
         )
 
-    def get_bucket_info(self, bucket_name):
+    def get_bucket_info(self, bucket_name, namespace=None):
         """
         Returns information for a given bucket
 
@@ -241,5 +241,11 @@ class Bucket():
 
         :param bucket_name: The bucket name to fetch information
         """
-        return self.conn.get(
-            url='object/bucket/{0}/info'.format(bucket_name))
+
+        url = 'object/bucket/{0}/info'.format(bucket_name)
+        params = {}
+
+        if namespace:
+            params['namespace'] = namespace
+
+        return self.conn.get(url=url, params=params)
