@@ -143,6 +143,9 @@ class Bucket():
             then the FS heads are implicitly allowed to access this bucket
         :param namespace: namespace associated with the user/tenant that is
             allowed to access the bucket
+
+        FIXME: the ecs_compat parameter and logic is experimental and should
+            eventually be removed.
         """
 
         payload = {
@@ -157,7 +160,7 @@ class Bucket():
         return self.conn.post(url='object/bucket',
                               json_payload=payload)
 
-    def get_bucket_lock(self, bucket_name, namespace=None):
+    def get_bucket_lock(self, bucket_name, namespace=None, ecs_compat=False):
         """
         Get bucket lock status
 
@@ -176,12 +179,19 @@ class Bucket():
         """
 
         if namespace:
-            return self.conn.get(
-                url='object/bucket/{0}/{1}/lock'.format(
-                    bucket_name, namespace))
+            if ecs_compat:
+                url = 'object/bucket/{0}/lock?namespace={1}'.format(
+                    bucket_name, namespace
+                )
+
+            else:
+                url = 'object/bucket/{0}/{1}/lock'.format(
+                    bucket_name, namespace
+                )
         else:
-            return self.conn.get(
-                url='object/bucket/{0}/lock'.format(bucket_name))
+            url = 'object/bucket/{0}/lock'.format(bucket_name)
+
+        return self.conn.get(url=url)
 
     def lock_bucket(self, bucket_name, is_locked='true', namespace=None):
         """
