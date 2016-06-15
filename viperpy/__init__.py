@@ -32,6 +32,8 @@ from viperpy.api.system_management.upgrade import Upgrade
 
 from viperpy.api.tenant.tenants import Tenants
 
+from viperpy.api.block.volumes import Volumes
+
 from viperpy.util.exceptions import ViperpyException
 from viperpy.util.token_request import TokenRequest
 
@@ -113,6 +115,9 @@ class Viperpy(object):
 
         # API -> Tenant
         self.tenants = Tenants(self)
+
+        # API -> Block Volumes
+        self.block_volumes = Volumes(self)
 
     def get_token(self):
         """
