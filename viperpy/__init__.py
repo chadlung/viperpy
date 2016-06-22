@@ -30,6 +30,7 @@ from viperpy.api.system_management.configuration import Configuration
 from viperpy.api.system_management.health_monitor import HealthMonitor
 from viperpy.api.system_management.upgrade import Upgrade
 
+from viperpy.api.tenant.projects import Projects
 from viperpy.api.tenant.tenants import Tenants
 
 from viperpy.api.block.volumes import Volumes
@@ -116,6 +117,7 @@ class Viperpy(object):
 
         # API -> Tenant
         self.tenants = Tenants(self)
+        self.projects = Projects(self)
 
         # API -> Block Volumes
         self.block_volumes = Volumes(self)
