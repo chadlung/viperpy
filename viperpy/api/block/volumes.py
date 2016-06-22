@@ -26,6 +26,17 @@ class Volumes():
         json_data = self.conn.get('block/volumes/bulk')
         return json_data['id']
 
+    def get_volumes_bulk_by_id(self, volume_ids):
+        """
+        Retrieve detailed information about a set of volumes
+
+        :param volume_ids: A list of volume IDs
+        :return: A list of volumes
+        """
+        json_data = self.conn.post(url='block/volumes/bulk',
+                                   json_payload={"id": volume_ids})
+        return json_data['volume']
+
     def get_volume(self, volume_id):
         """
         Perform an HTTP GET against the ViPR endpoint to
