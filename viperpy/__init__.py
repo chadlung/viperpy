@@ -35,6 +35,9 @@ from viperpy.api.tenant.tenants import Tenants
 
 from viperpy.api.block.volumes import Volumes
 from viperpy.api.block.vpools import VirtualPools
+
+from viperpy.api.compute.vcenters import Vcenters
+
 from viperpy.api.license import License
 
 from viperpy.util.exceptions import ViperpyException
@@ -123,6 +126,9 @@ class Viperpy(object):
         # API -> Block Volumes
         self.block_volumes = Volumes(self)
         self.block_vpools = VirtualPools(self)
+
+        # API -> Compute
+        self.vcenters = Vcenters(self)
 
         # API -> License
         self.license = License(self)
