@@ -51,8 +51,14 @@ class Vcenters():
         '''
         Update the configuration of a vCenter object
 
-        :param vcenter_id: The ID of the vCenter object to update
-        :param payload: New configuration for the vCenter
+        :param vcenter_id: ID of the vCenter object to update
+        :param ip_address: The IP address of the vCenter (optional)
+        :param name: Inventory name of the vCenter (optional)
+        :param port_number: Port to use for communication with the vCenter (optional)
+        :param username: Username to use to connect to the vCenter (optional)
+        :param password: Password to use to connect to the vCenter (optional)
+        :param use_ssl: Whether to use SSL for communication (optional)
+        :param os_version: OS version of the vCenter (optional)
         :return: The vcenter's information
         '''
         payload = {
